@@ -2,5 +2,15 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "mongodb": {
+    "host": "cort",
+    "port": 3000,
+    "url": "",
+    "database": "items",
+    "password": "corting",
+    "name": "mongodb",
+    "user": "zozo",
+    "connector": "mongodb"
   }
 }
