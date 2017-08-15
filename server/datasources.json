@@ -4,13 +4,13 @@
     "connector": "memory"
   },
   "mongodb": {
-    "host": "cort",
-    "port": 3000,
+    "host": "127.0.0.1",
+    "port": 27017,
     "url": "",
     "database": "items",
-    "password": "corting",
+    "password": "",
     "name": "mongodb",
-    "user": "zozo",
+    "user": "",
     "connector": "mongodb"
   }
 }
