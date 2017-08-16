@@ -4,6 +4,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
 import {FlashMessagesModule} from 'angular2-flash-messages';
 import {LocationStrategy,HashLocationStrategy} from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
@@ -18,6 +19,7 @@ import { UsersComponent } from './users/users.component';
 	UsersComponent
 	],
 	imports: [
+	FormsModule,
 	BrowserModule,
 	HttpModule,
 	RouterModule.forRoot([

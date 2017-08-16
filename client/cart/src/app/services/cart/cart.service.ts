@@ -15,9 +15,12 @@ export class CartService {
 
 	getItem(){
 		let url = 'http://localhost:3000/api/items';
-		console.log(this.headers)
 		return this.http.get(url,{headers: this.headers})
 		.map(res => res.json())
+		.catch(err=> {
+			console.log(err)
+			return Observable.throw(err);
+		})
 	}
 
 }
