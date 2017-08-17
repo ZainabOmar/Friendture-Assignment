@@ -23,9 +23,23 @@ export class UsersService {
 	});
 
 	signin(user) {
-		let url = 'http://localhost:3000/api/Users';
-		let body = JSON.stringify(user)
-		return this.http.post(url, body, {headers: this.headers})
+		let url = 'http://localhost:3000/api/clients';
+		return this.http.post(url, user, {headers: this.headers})
+		.map(res => res.json())
+		.catch(err=> {
+			return Observable.throw(err);
+		})
+	}
+
+	logout(){
+		this.authToken = null;
+		this.user = null;
+		localStorage.clear();
+	}
+
+	getAllUsers () {
+		let url = 'http://localhost:3000/api/clients';
+		return this.http.get(url, {headers: this.headers})
 		.map(res => res.json())
 		.catch(err=> {
 			console.log(err)

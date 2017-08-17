@@ -25,19 +25,29 @@ export class UsersComponent implements OnInit {
 
 	onSubmit(){
 		const user = {
-			username: this.username,
-			password: this.password,
-			email: this.email
+			email: this.email,
+			password: this.password
 		}
 		this.userService.signin(user).subscribe(data => {
-			if(data.token){
+			if(data){
 				this.flashMessage.show('Welcome ', {cssClass: 'alert-success', timeout: 5000});
 				this.userService.storeUserData(data.token,data.userid,data.username);
 				this.router.navigate(['/cart']);
-			}else {
+			}
+			if(!data.email || !data.username) {
+				this.flashMessage.show('Missing data', {cssClass: 'alert-danger', timeout: 7000});
+			}
+			else {
+				console.log(data)
 				this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 5000});
 			}
 		});
+	}
+
+	getUsers() {
+		this.userService.getAllUsers().subscribe(data=> {
+			console.log(data)
+		})
 	}
 
 }
