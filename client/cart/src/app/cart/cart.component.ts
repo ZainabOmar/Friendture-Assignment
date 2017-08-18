@@ -9,7 +9,21 @@ import {Router} from '@angular/router';
 	styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+
 	result : any;
+	Items: string [] = [
+	"Bag", "Hand Watch",
+	"Dress", "Laptop", 
+	"Shoes", "Headphones", 
+	"Car Charger", "Mug",
+	"Book", "Wall clock",
+	"Camer", "T-shirt",
+	"Phone case", "Gift card",
+	"Notebook", "Sunglasses",
+	"Bike", "Boots",
+	"Cap", "Blender",
+	"Teapot", "Task chair"
+	];
 
 	constructor(
 		private router: Router,
