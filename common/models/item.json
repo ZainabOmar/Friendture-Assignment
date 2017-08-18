@@ -1,6 +1,6 @@
 {
-  "name": "bag",
-  "plural": "bags",
+  "name": "item",
+  "plural": "items",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -9,15 +9,22 @@
   "properties": {
     "title": {
       "type": "string",
-      "required": true,
-      "default": "bag"
-    },
-    "price": {
-      "type": "string",
       "required": true
     },
     "quantity": {
       "type": "number",
+      "required": true
+    },
+    "price": {
+      "type": "number",
+      "required": true
+    },
+    "active-item": {
+      "type": "boolean",
+      "required": true
+    },
+    "purchased": {
+      "type": "boolean",
       "required": true
     }
   },

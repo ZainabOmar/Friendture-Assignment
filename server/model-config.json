@@ -35,15 +35,7 @@
     "dataSource": "db",
     "public": false
   },
-  "bag": {
-    "dataSource": "db",
-    "public": true
-  },
-  "bike": {
-    "dataSource": "db",
-    "public": true
-  },
-  "hand-watch": {
+  "item": {
     "dataSource": "db",
     "public": true
   }

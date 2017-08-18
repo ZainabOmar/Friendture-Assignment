@@ -52,17 +52,6 @@ export class CartComponent implements OnInit {
 		})
 	}
 
-	logout() {
-		this.usersService.logout()
-		this.router.navigate(['/']);
-	}
-
-	clicked(index) {// only show clicked img info 
-		console.log(this.Items[index]);
-		this.Items[index]['flag'] = !this.Items[index]['flag'];
-		console.log(this.Items[index]['flag'])
-	};
-
 }
 
 

@@ -42,7 +42,7 @@
 						<p *ngIf = "item.flag">Tilte: {{item.title}}</p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal" (click)="clicked(i)" >Submit</button>
 				</div>
 			</div>
 		</div>
