@@ -35,11 +35,15 @@
     "dataSource": "db",
     "public": false
   },
-  "item": {
+  "bag": {
     "dataSource": "db",
     "public": true
   },
-  "client": {
+  "bike": {
+    "dataSource": "db",
+    "public": true
+  },
+  "hand-watch": {
     "dataSource": "db",
     "public": true
   }
