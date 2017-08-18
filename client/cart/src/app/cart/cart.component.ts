@@ -20,27 +20,18 @@ export class CartComponent implements OnInit {
 	flag: any;
 
 	public Items: Array<Object> = [
-	{title: "Bags", img: "../../assets/img/1.png", flag: false},
+	{title: "Bag", img: "../../assets/img/1.png", flag: false},
 	{title: "Hand Watch", img: "../../assets/img/2.png", flag: false},
-	{title: "Dresses", img: "../../assets/img/3.png", flag: false}, 
-	{title: "Macbooks", img: "../../assets/img/4.png", flag: false}, 
+	{title: "Dress", img: "../../assets/img/3.png", flag: false},
 	{title: "Headphones", img: "../../assets/img/5.png", flag: false}, 
-	{title: "Mugs", img: "../../assets/img/6.png", flag: false},
-	{title: "Car Charger", img: "../../assets/img/7.png", flag: false},
-	{title: "Books", img: "../../assets/img/8.png", flag: false},
-	{title: "Wall clocks", img: "../../assets/img/9.png", flag: false},
-	{title: "Caps", img: "../../assets/img/10.png", flag: false},
-	{title: "Boots", img: "../../assets/img/11.png", flag: false},
-	{title: "Cameras", img: "../../assets/img/12.png", flag: false},
-	{title: "T-shirts", img: "../../assets/img/13.png", flag: false},
-	{title: "Teapots", img: "../../assets/img/14.png", flag: false},
-	{title: "Phone cases", img: "../../assets/img/15.png", flag: false},
-	{title: "Gift cards", img: "../../assets/img/16.png", flag: false},
-	{title: "Sunglasses", img: "../../assets/img/17.png", flag: false},
-	{title: "Notebooks", img: "../../assets/img/18.png", flag: false},
-	{title: "Bikes", img: "../../assets/img/19.png", flag: false},
-	{title: "Blenders", img: "../../assets/img/20.png", flag: false},
-	{title: "Task chairs", img: "../../assets/img/21.png", flag: false}
+	{title: "Mug", img: "../../assets/img/6.png", flag: false},
+	{title: "Cap", img: "../../assets/img/10.png", flag: false},
+	{title: "Camera", img: "../../assets/img/12.png", flag: false},
+	{title: "Teapot", img: "../../assets/img/14.png", flag: false},
+	{title: "Phone case", img: "../../assets/img/15.png", flag: false},
+	{title: "Notebook", img: "../../assets/img/18.png", flag: false},
+	{title: "Bike", img: "../../assets/img/19.png", flag: false},
+	{title: "Task chair", img: "../../assets/img/21.png", flag: false}
 	];
 
 	ngOnInit() { 
@@ -50,6 +41,11 @@ export class CartComponent implements OnInit {
 		}, err => {
 			console.log(err)
 		})
+	}
+
+	clicked(index) {
+		console.log(this.Items[index]["flag"])
+		this.Items[index]["flag"] = !this.Items[index]["flag"]
 	}
 
 }
