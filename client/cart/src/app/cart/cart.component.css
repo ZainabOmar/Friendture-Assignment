@@ -30,3 +30,7 @@
     max-height:90%;
     max-width:100%;
 }
+#bbttnn:hover,
+#bbttnn:focus {
+    background-color: white;
+}

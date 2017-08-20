@@ -17,7 +17,10 @@ export class CartComponent implements OnInit {
 		) { }
 
 	result : any;
-	flag: any;
+	title: any;
+	price: any;
+	quantity: any;
+	flag = true;
 
 	public Items: Array<Object> = [
 	{title: "Bag", img: "../../assets/img/1.png", flag: false},

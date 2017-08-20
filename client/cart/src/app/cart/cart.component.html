@@ -19,17 +19,40 @@
 	</div>
 </nav>
 
-<div class="square" *ngFor = "let item of Items">
+<div class="square" *ngFor = "let item of Items; let i = index">
 	<div class="content">
 		<div class="table">
 			<div class="table-cell">
-				<button class="btn btn-lg btn-block" style="background-color: #1a1a1a; color: LightGray; text-align: center;" (click) = "showForm()" >{{item.title}}</button>
+				<button class="btn btn-lg btn-block" ata-toggle="modal" data-target="#myModal" style="background-color: #1a1a1a; color: LightGray; text-align: center;" (click) = "showForm(i)" >{{item.title}}</button>
 				<img id = "img" src={{item.img}} alt="loading">
 			</div>
 		</div>
 	</div>
 </div><br><br>
 <div style="margin-left: 475px">
-	<button class="btn btn-lg" style="text-align: center; background-color: #0d0d0d; color: LightGray;" (click) = "showData()">Checkout</button>
+	<button id = "bbttnn" class="btn btn-lg" style="background-color: Aqua;" (click) = "showData()">Checkout</button>
+</div>
+<div class="container">
+	<h2>Add to cart</h2>
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" (click) = clicked(i)>&times;</button>
+					<h4 class="modal-title">Start Adding</h4>
+				</div>
+				<div class="modal-body">
+					<p [(ngModel)]="title">Title: </p>
+					<select type="number" [(ngModel)]="quantity" >
+						<option [ngValue]="item.quantity">{{item.quantity}}</option>
+					</select>
+					<p [(ngModel)]="price">Price: </p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" (click) = clicked(i)>Submit</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
