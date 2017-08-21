@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart/cart.service';
 import { UsersService } from '../services/users/users.service';
+import {FlashMessagesService} from 'angular2-flash-messages';
 import {Router} from '@angular/router';
 
 @Component({
@@ -13,6 +14,7 @@ export class CartComponent implements OnInit {
 	constructor(
 		private router: Router,
 		private cartService: CartService,
+		private flashMessage:FlashMessagesService,
 		private usersService: UsersService
 		) { }
 
@@ -20,22 +22,8 @@ export class CartComponent implements OnInit {
 	title: any;
 	price: any;
 	quantity: any;
-	flag = true;
-
-	public Items: Array<Object> = [
-	{title: "Bag", img: "../../assets/img/1.png", flag: false},
-	{title: "Hand Watch", img: "../../assets/img/2.png", flag: false},
-	{title: "Dress", img: "../../assets/img/3.png", flag: false},
-	{title: "Headphones", img: "../../assets/img/5.png", flag: false}, 
-	{title: "Mug", img: "../../assets/img/6.png", flag: false},
-	{title: "Cap", img: "../../assets/img/10.png", flag: false},
-	{title: "Camera", img: "../../assets/img/12.png", flag: false},
-	{title: "Teapot", img: "../../assets/img/14.png", flag: false},
-	{title: "Phone case", img: "../../assets/img/15.png", flag: false},
-	{title: "Notebook", img: "../../assets/img/18.png", flag: false},
-	{title: "Bike", img: "../../assets/img/19.png", flag: false},
-	{title: "Task chair", img: "../../assets/img/21.png", flag: false}
-	];
+	purchased: any;
+	activeItem: any;
 
 	ngOnInit() { 
 		this.cartService.getItem().subscribe(data => {
@@ -45,10 +33,22 @@ export class CartComponent implements OnInit {
 			console.log(err)
 		})
 	}
+	postItem(item){
+		const itemObj = {
+				title: this.title,
+				quantity: this.quantity,
+				price: this.price,
+				purchased: this.purchased,
+				activeItem: this.activeItem
+			}
 
-	clicked(index) {
-		console.log(this.Items[index]["flag"])
-		this.Items[index]["flag"] = !this.Items[index]["flag"]
+		this.cartService.postOneItem(itemObj).subscribe(data => {
+			console.log(data)
+		// 	if(data.)
+		// 	this.flashMessage.show('Your item has been added', {cssClass: 'alert-success', timeout: 5000});
+
+		})
+
 	}
 
 }

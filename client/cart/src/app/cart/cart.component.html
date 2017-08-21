@@ -1,58 +1,369 @@
-<nav class="navbar navbar-inverse">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>                        
-			</button>        
-			<a class="navbar-brand">Shopping Cart <i class="fa fa-ravelry" aria-hidden="true"></i></a>
-		</div>
-		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">
-				<li class="active"><a routerLink = "/">My Items <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a (click)="logout()">Log Out <span class="glyphicon glyphicon-lock"></span></a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
+<br><br>
 
-<div class="square" *ngFor = "let item of Items; let i = index">
+<div class="square">
 	<div class="content">
 		<div class="table">
 			<div class="table-cell">
-				<button class="btn btn-lg btn-block" ata-toggle="modal" data-target="#myModal" style="background-color: #1a1a1a; color: LightGray; text-align: center;" (click) = "showForm(i)" >{{item.title}}</button>
-				<img id = "img" src={{item.img}} alt="loading">
+				<button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal1" style="background-color: #1a1a1a; color: LightGray; text-align: center;">Bags</button>
+				<img id = "img" src="../../assets/img/1.png" alt="loading">
 			</div>
 		</div>
 	</div>
-</div><br><br>
-<div style="margin-left: 475px">
-	<button id = "bbttnn" class="btn btn-lg" style="background-color: Aqua;" (click) = "showData()">Checkout</button>
 </div>
-<div class="container">
-	<h2>Add to cart</h2>
-	<div class="modal fade" id="myModal" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" (click) = clicked(i)>&times;</button>
-					<h4 class="modal-title">Start Adding</h4>
-				</div>
-				<div class="modal-body">
-					<p [(ngModel)]="title">Title: </p>
-					<select type="number" [(ngModel)]="quantity" >
-						<option [ngValue]="item.quantity">{{item.quantity}}</option>
-					</select>
-					<p [(ngModel)]="price">Price: </p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal" (click) = clicked(i)>Submit</button>
-				</div>
+<div class="square">
+	<div class="content">
+		<div class="table">
+			<div class="table-cell">
+				<button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal2" style="background-color: #1a1a1a; color: LightGray; text-align: center;" >Hand Watch</button>
+				<img id = "img" src="../../assets/img/2.png" alt="loading">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="square">
+	<div class="content">
+		<div class="table">
+			<div class="table-cell">
+				<button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal3" style="background-color: #1a1a1a; color: LightGray; text-align: center;">Dress</button>
+				<img id = "img" src="../../assets/img/3.png" alt="loading">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="square">
+	<div class="content">
+		<div class="table">
+			<div class="table-cell">
+				<button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal4" style="background-color: #1a1a1a; color: LightGray; text-align: center;">Headphones</button>
+				<img id = "img" src="../../assets/img/5.png" alt="loading">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="square">
+	<div class="content">
+		<div class="table">
+			<div class="table-cell">
+				<button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal5" style="background-color: #1a1a1a; color: LightGray; text-align: center;">Mug</button>
+				<img id = "img" src="../../assets/img/6.png" alt="loading">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="square">
+	<div class="content">
+		<div class="table">
+			<div class="table-cell">
+				<button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal6" style="background-color: #1a1a1a; color: LightGray; text-align: center;">Cap</button>
+				<img id = "img" src="../../assets/img/10.png" alt="loading">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="square">
+	<div class="content">
+		<div class="table">
+			<div class="table-cell">
+				<button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal7" style="background-color: #1a1a1a; color: LightGray; text-align: center;">Camera</button>
+				<img id = "img" src="../../assets/img/12.png" alt="loading">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="square">
+	<div class="content">
+		<div class="table">
+			<div class="table-cell">
+				<button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal8" style="background-color: #1a1a1a; color: LightGray; text-align: center;">Teapot</button>
+				<img id = "img" src="../../assets/img/14.png" alt="loading">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="square">
+	<div class="content">
+		<div class="table">
+			<div class="table-cell">
+				<button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal9" style="background-color: #1a1a1a; color: LightGray; text-align: center;">Phone case</button>
+				<img id = "img" src="../../assets/img/15.png" alt="loading">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="square">
+	<div class="content">
+		<div class="table">
+			<div class="table-cell">
+				<button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal10" style="background-color: #1a1a1a; color: LightGray; text-align: center;">Notebook</button>
+				<img id = "img" src="../../assets/img/18.png" alt="loading">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="square">
+	<div class="content">
+		<div class="table">
+			<div class="table-cell">
+				<button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal11" style="background-color: #1a1a1a; color: LightGray; text-align: center;">Bike</button>
+				<img id = "img" src="../../assets/img/19.png" alt="loading">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="square">
+	<div class="content">
+		<div class="table">
+			<div class="table-cell">
+				<button class="btn btn-lg btn-block" data-toggle="modal" data-target="#myModal12" style="background-color: #1a1a1a; color: LightGray; text-align: center;">Task chair</button>
+				<img id = "img" src="../../assets/img/21.png" alt="loading">
+			</div>
+		</div>
+	</div>
+</div>
+<br><br>
+<div class="modal fade" id="myModal1" role="dialog" (submit)="postItem()">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add To Cart</h4>
+			</div>
+			<div class="modal-body">
+				<p [(ngModel)]="title" ngDefaultControl>Title: Bags</p>
+				<select type="number" [(ngModel)]="quantity" ngDefaultControl>
+					<option>Quantity</option>
+				</select>
+				<p [(ngModel)]="price" ngDefaultControl>Price: </p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="myModal2" role="dialog" (submit)="postItem()">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add To Cart</h4>
+			</div>
+			<div class="modal-body">
+				<p [(ngModel)]="title" ngDefaultControl>Title: Hand Watch </p>
+				<select type="number" [(ngModel)]="quantity" ngDefaultControl>
+					<option>Quantity</option>
+				</select>
+				<p [(ngModel)]="price" ngDefaultControl>Price: </p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="myModal3" role="dialog" (submit)="postItem()">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add To Cart</h4>
+			</div>
+			<div class="modal-body">
+				<p [(ngModel)]="title" ngDefaultControl>Title: Hand Watch </p>
+				<select type="number" [(ngModel)]="quantity" ngDefaultControl>
+					<option>Quantity</option>
+				</select>
+				<p [(ngModel)]="price" ngDefaultControl>Price: </p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="myModal4" role="dialog" (submit)="postItem()">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add To Cart</h4>
+			</div>
+			<div class="modal-body">
+				<p [(ngModel)]="title" ngDefaultControl>Title: Hand Watch </p>
+				<select type="number" [(ngModel)]="quantity" ngDefaultControl>
+					<option>Quantity</option>
+				</select>
+				<p [(ngModel)]="price" ngDefaultControl>Price: </p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="myModal5" role="dialog" (submit)="postItem()">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add To Cart</h4>
+			</div>
+			<div class="modal-body">
+				<p [(ngModel)]="title" ngDefaultControl>Title: Hand Watch </p>
+				<select type="number" [(ngModel)]="quantity" ngDefaultControl>
+					<option>Quantity</option>
+				</select>
+				<p [(ngModel)]="price" ngDefaultControl>Price: </p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="myModal6" role="dialog" (submit)="postItem()">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add To Cart</h4>
+			</div>
+			<div class="modal-body">
+				<p [(ngModel)]="title" ngDefaultControl>Title: Hand Watch </p>
+				<select type="number" [(ngModel)]="quantity" ngDefaultControl>
+					<option>Quantity</option>
+				</select>
+				<p [(ngModel)]="price" ngDefaultControl>Price: </p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="myModal7" role="dialog" (submit)="postItem()">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add To Cart</h4>
+			</div>
+			<div class="modal-body">
+				<p [(ngModel)]="title" ngDefaultControl>Title: Hand Watch </p>
+				<select type="number" [(ngModel)]="quantity" ngDefaultControl>
+					<option>Quantity</option>
+				</select>
+				<p [(ngModel)]="price" ngDefaultControl>Price: </p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="myModal8" role="dialog" (submit)="postItem()">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add To Cart</h4>
+			</div>
+			<div class="modal-body">
+				<p [(ngModel)]="title" ngDefaultControl>Title: Hand Watch </p>
+				<select type="number" [(ngModel)]="quantity" ngDefaultControl>
+					<option>Quantity</option>
+				</select>
+				<p [(ngModel)]="price" ngDefaultControl>Price: </p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="myModal9" role="dialog" (submit)="postItem()">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add To Cart</h4>
+			</div>
+			<div class="modal-body">
+				<p [(ngModel)]="title" ngDefaultControl>Title: Hand Watch </p>
+				<select type="number" [(ngModel)]="quantity" ngDefaultControl>
+					<option>Quantity</option>
+				</select>
+				<p [(ngModel)]="price" ngDefaultControl>Price: </p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="myModal10" role="dialog" (submit)="postItem()">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add To Cart</h4>
+			</div>
+			<div class="modal-body">
+				<p [(ngModel)]="title" ngDefaultControl>Title: Hand Watch </p>
+				<select type="number" [(ngModel)]="quantity" ngDefaultControl>
+					<option>Quantity</option>
+				</select>
+				<p [(ngModel)]="price" ngDefaultControl>Price: </p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="myModal11" role="dialog" (submit)="postItem()">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add To Cart</h4>
+			</div>
+			<div class="modal-body">
+				<p [(ngModel)]="title" ngDefaultControl>Title: Hand Watch </p>
+				<select type="number" [(ngModel)]="quantity" ngDefaultControl>
+					<option>Quantity</option>
+				</select>
+				<p [(ngModel)]="price" ngDefaultControl>Price: </p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="myModal12" role="dialog" (submit)="postItem()">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add To Cart</h4>
+			</div>
+			<div class="modal-body">
+				<p [(ngModel)]="title" ngDefaultControl>Title: Hand Watch </p>
+				<select type="number" [(ngModel)]="quantity" ngDefaultControl>
+					<option>Quantity</option>
+				</select>
+				<p [(ngModel)]="price" ngDefaultControl>Price: </p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
 			</div>
 		</div>
 	</div>
 </div>
 
+
+
+<div style="margin-left: 475px">
+	<button id = "bbttnn" class="btn btn-lg" style="background-color: Aqua;">Checkout</button>
+</div>
