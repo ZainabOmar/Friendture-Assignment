@@ -11,7 +11,7 @@
     position:absolute;
     height:80%; /* = 100% - 2*10% padding */
     width:100%; /* = 100% - 2*5% padding */
-    padding: 10% 5%;
+    padding: 10% 10%;
 }
 .table{
     display:table;

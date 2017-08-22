@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart/cart.service';
-import { UsersService } from '../services/users/users.service';
 import {FlashMessagesService} from 'angular2-flash-messages';
 import {Router} from '@angular/router';
 
@@ -14,8 +13,7 @@ export class CartComponent implements OnInit {
 	constructor(
 		private router: Router,
 		private cartService: CartService,
-		private flashMessage:FlashMessagesService,
-		private usersService: UsersService
+		private flashMessage:FlashMessagesService
 		) { }
 
 	result : any;
@@ -24,15 +22,9 @@ export class CartComponent implements OnInit {
 	quantity: any;
 	purchased: any;
 	saved: any;
+	flag = false;
 
-	ngOnInit() { 
-		this.cartService.getItem().subscribe(data => {
-			console.log(data)
-			this.result = data;
-		}, err => {
-			console.log(err)
-		})
-	}
+	ngOnInit() {}
 	postItem(){
 		const item = {
 			title: this.title,
@@ -49,6 +41,17 @@ export class CartComponent implements OnInit {
 				this.flashMessage.show('Your item has been added', {cssClass: 'alert-success', timeout: 5000});
 			}
 		})
+	}
+	getData(){
+		this.cartService.getItem().subscribe(data => {
+			this.result = data;
+		}, err => {
+			console.log(err)
+		})
+	}
+	onChange() {
+		this.flag = !this.flag;
+		this.getData()
 	}
 }
 

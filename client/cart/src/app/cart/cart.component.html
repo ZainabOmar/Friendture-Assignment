@@ -26,7 +26,7 @@
 	</div>
 </div>
 
-<form class="form-cart" (submit)="postItem()">
+<form class="form-cart" (submit)="postItem()" *ngIf = "!flag">
 	<h2 class="form-cart-heading">Add To Cart</h2>
 	<div class="col-sm-2"></div>
 	<div class="col-md-12">
@@ -49,7 +49,7 @@
 		</label>
 		<br><br>
 		<strong id="strong">Price: </strong>
-		<input type="text" class="form-control" name="price" required="" autofocus=""  [(ngModel)] = "price" [ngModelOptions]="{standalone: true}" ngDefaultControl>
+		<p [(ngModel)] = "price" [ngModelOptions]="{standalone: true}" ngDefaultControl>${{quantity * 30}}</p>
 		<input type="checkbox" [(ngModel)] = "saved" [ngModelOptions]="{standalone: true}" ngDefaultControl> Save for Later
 		<br>
 		<input type="checkbox" [(ngModel)] ="purchased" [ngModelOptions]="{standalone: true}" ngDefaultControl> Active for Purchase
@@ -57,4 +57,17 @@
 		<button id = "btn-block" class="btn btn-lg btn-basic" name="Submit" value="Login" type="Submit"> Submit </button>
 	</div>
 </form>
-<button id = "check" class="btn-block">Checkout</button>
+<button id = "check" class="btn-block" (click)="onChange()" >Checkout</button>
+<div *ngIf = "flag">
+	<div class="card card-inverse card-info mb-3 text-center" *ngFor = "let item of result">
+		<div class="card-block">
+			<blockquote class="card-blockquote">
+			<p>Item's Title: {{item.title}}</p>
+			<p>Quantity: {{item.quantity}}</p>
+			<p>Price: {{item.price}}</p>
+				<footer>isActivated: <cite title="Source Title">{{item.purchased}}</cite></footer>
+				<footer>isSaved: <cite title="Source Title">{{item.saved}}</cite></footer>
+			</blockquote>
+		</div>
+	</div>
+</div>
