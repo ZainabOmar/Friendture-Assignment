@@ -23,7 +23,7 @@ export class CartComponent implements OnInit {
 	price: any;
 	quantity: any;
 	purchased: any;
-	activeItem: any;
+	saved: any;
 
 	ngOnInit() { 
 		this.cartService.getItem().subscribe(data => {
@@ -39,19 +39,16 @@ export class CartComponent implements OnInit {
 			quantity: this.quantity,
 			price: this.price,
 			purchased: this.purchased,
-			activeItem: this.activeItem
+			saved: this.saved
 		}
 
 		this.cartService.postOneItem(item).subscribe(data => {
 			console.log(data)
-			if(data)
-				this.flashMessage.show('Your item has been added', {cssClass: 'alert-success', timeout: 5000});
 		})
-
 	}
 
 }
-
+// this.flashMessage.show('Your item has been added', {cssClass: 'alert-success', timeout: 5000});
 
 
 

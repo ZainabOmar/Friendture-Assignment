@@ -19,7 +19,7 @@
       "type": "number",
       "required": false
     },
-    "active-item": {
+    "saved": {
       "type": "boolean",
       "required": true
     },

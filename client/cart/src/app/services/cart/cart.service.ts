@@ -23,9 +23,16 @@ export class CartService {
 	}
 
 	postOneItem(item){
+		if(item.saved == undefined) {
+			item.saved = false;
+		}else if (item.purchased == undefined){
+			console.log("hello")
+			item.purchased = false;
+		}
 		console.log(item)
 		let url = 'http://localhost:3000/api/items';
-		return this.http.post(url, {headers: this.headers})
+		let body = JSON
+		return this.http.post(url, item, {headers: this.headers})
 		.map(res => res.json())
 		.catch(err=> {
 			console.log(err)
