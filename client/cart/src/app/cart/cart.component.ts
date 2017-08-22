@@ -43,12 +43,14 @@ export class CartComponent implements OnInit {
 		}
 
 		this.cartService.postOneItem(item).subscribe(data => {
-			console.log(data)
+			if(!data) {
+				this.flashMessage.show('Something went wrong, please check your data again', {cssClass: 'alert-danger', timeout: 5000});
+			}else{
+				this.flashMessage.show('Your item has been added', {cssClass: 'alert-success', timeout: 5000});
+			}
 		})
 	}
-
 }
-// this.flashMessage.show('Your item has been added', {cssClass: 'alert-success', timeout: 5000});
 
 
 

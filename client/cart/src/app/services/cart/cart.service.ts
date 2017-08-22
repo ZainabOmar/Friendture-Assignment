@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import {Http, Headers} from '@angular/http';
 import {Observable} from 'rxjs';
+import {FlashMessagesService} from 'angular2-flash-messages';
 
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class CartService {
 
-	constructor(private http:Http) { }
+	constructor(private http:Http, private flashMessage:FlashMessagesService) { }
 
 	headers = new Headers({
 		'Content-Type': 'application/json'
@@ -35,6 +36,7 @@ export class CartService {
 		return this.http.post(url, item, {headers: this.headers})
 		.map(res => res.json())
 		.catch(err=> {
+			this.flashMessage.show('Something went wrong, please check your data again', {cssClass: 'alert-danger', timeout: 5000});
 			console.log(err)
 			return Observable.throw(err);
 		})
