@@ -9,26 +9,22 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './services/cart/cart.service';
-import { UsersService } from './services/users/users.service';
-import { UsersComponent } from './users/users.component';
 
 @NgModule({
 	declarations: [
 	AppComponent,
-	CartComponent,
-	UsersComponent
+	CartComponent
 	],
 	imports: [
 	FormsModule,
 	BrowserModule,
 	HttpModule,
 	RouterModule.forRoot([
-		{path: '', component: UsersComponent},
 		{path: 'cart', component: CartComponent}
 		]),
 	FlashMessagesModule
 	],
-	providers: [{provide:LocationStrategy,useClass:HashLocationStrategy}, CartService, UsersService],
+	providers: [{provide:LocationStrategy,useClass:HashLocationStrategy}, CartService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -31,7 +31,7 @@
 	<div class="col-sm-2"></div>
 	<div class="col-md-12">
 		<strong id="strong"> Item Name: </strong>
-		<input type="text" class="form-control" name="title" placeholder="Title Name" required="" autofocus="" [(ngModel)] = "title" [ngModelOptions]="{standalone: true}" ngDefaultControl/>
+		<input type="text" class="form-control" name="title" placeholder="Item Name" required="" autofocus="" [(ngModel)] = "title" [ngModelOptions]="{standalone: true}" ngDefaultControl/>
 		<br><br>
 		<label>
 			<strong id="strong">Qantity</strong>
@@ -48,11 +48,13 @@
 			</select>
 		</label>
 		<br><br>
-		<strong id="strong" [(ngModel)] = "price" [ngModelOptions]="{standalone: true}" ngDefaultControl>Price: </strong><p> {{(quantity*30)}}$</p>
+		<strong id="strong">Price: </strong>
+		<input type="text" class="form-control" name="price" required="" autofocus=""  [(ngModel)] = "price" [ngModelOptions]="{standalone: true}" ngDefaultControl>
 		<input type="checkbox" [(ngModel)] = "saved" [ngModelOptions]="{standalone: true}" ngDefaultControl> Save for Later
 		<br>
 		<input type="checkbox" [(ngModel)] ="purchased" [ngModelOptions]="{standalone: true}" ngDefaultControl> Active for Purchase
 		<br><br>
-		<button class="btn btn-lg btn-basic btn-block" name="Submit" value="Login" type="Submit"> Submit </button>
+		<button id = "btn-block" class="btn btn-lg btn-basic" name="Submit" value="Login" type="Submit"> Submit </button>
 	</div>
 </form>
+<button id = "check" class="btn-block">Checkout</button>
