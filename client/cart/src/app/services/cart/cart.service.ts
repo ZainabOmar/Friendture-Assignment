@@ -18,12 +18,12 @@ export class CartService {
 		return this.http.get(url,{headers: this.headers})
 		.map(res => res.json())
 		.catch(err=> {
-			console.log(err)
 			return Observable.throw(err);
 		})
 	}
 
 	postOneItem(item){
+		console.log(item)
 		let url = 'http://localhost:3000/api/items';
 		return this.http.post(url, {headers: this.headers})
 		.map(res => res.json())

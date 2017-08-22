@@ -33,20 +33,19 @@ export class CartComponent implements OnInit {
 			console.log(err)
 		})
 	}
-	postItem(item){
-		const itemObj = {
-				title: this.title,
-				quantity: this.quantity,
-				price: this.price,
-				purchased: this.purchased,
-				activeItem: this.activeItem
-			}
+	postItem(){
+		const item = {
+			title: this.title,
+			quantity: this.quantity,
+			price: this.price,
+			purchased: this.purchased,
+			activeItem: this.activeItem
+		}
 
-		this.cartService.postOneItem(itemObj).subscribe(data => {
+		this.cartService.postOneItem(item).subscribe(data => {
 			console.log(data)
-		// 	if(data.)
-		// 	this.flashMessage.show('Your item has been added', {cssClass: 'alert-success', timeout: 5000});
-
+			if(data)
+				this.flashMessage.show('Your item has been added', {cssClass: 'alert-success', timeout: 5000});
 		})
 
 	}
