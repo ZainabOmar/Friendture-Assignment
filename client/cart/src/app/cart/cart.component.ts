@@ -26,13 +26,15 @@ export class CartComponent implements OnInit {
 
 	ngOnInit() {}
 	postItem(){
+		var price = document.getElementById('getPrice').innerText;
 		const item = {
 			title: this.title,
 			quantity: this.quantity,
-			price: this.price,
+			price: price,
 			purchased: this.purchased,
 			saved: this.saved
 		}
+
 
 		this.cartService.postOneItem(item).subscribe(data => {
 			if(!data) {
@@ -47,6 +49,12 @@ export class CartComponent implements OnInit {
 			this.result = data;
 		}, err => {
 			console.log(err)
+		})
+	}
+	deleteItem (item) {
+		var id = item.id;
+		this.cartService.delItem(id).subscribe(data => {
+			console.log(data)
 		})
 	}
 	onChange() {

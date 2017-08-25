@@ -41,5 +41,16 @@ export class CartService {
 			return Observable.throw(err);
 		})
 	}
+	delItem (id) {
+		let url = 'http://localhost:3000/api/items/'+id;
+		return this.http.get(url, {headers: this.headers})
+		.map(res => {
+			console.log(res)
+			res.json()
+		})
+		.catch(err=> {
+			return Observable.throw(err);
+		})
+	}
 
 }

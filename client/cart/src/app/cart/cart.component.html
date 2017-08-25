@@ -25,7 +25,7 @@
 		</div>
 	</div>
 </div>
-
+<button id = "check" class="btn-block" (click)="onChange()" >Checkout</button>
 <form class="form-cart" (submit)="postItem()" *ngIf = "!flag">
 	<h2 class="form-cart-heading">Add To Cart</h2>
 	<div class="col-sm-2"></div>
@@ -49,7 +49,7 @@
 		</label>
 		<br><br>
 		<strong id="strong">Price: </strong>
-		<p [(ngModel)] = "price" [ngModelOptions]="{standalone: true}" ngDefaultControl>${{quantity * 30}}</p>
+		<p id="getPrice" [(ngModel)] = "price" [ngModelOptions]="{standalone: true}" ngDefaultControl>${{quantity * 30}}</p>
 		<input type="checkbox" [(ngModel)] = "saved" [ngModelOptions]="{standalone: true}" ngDefaultControl> Save for Later
 		<br>
 		<input type="checkbox" [(ngModel)] ="purchased" [ngModelOptions]="{standalone: true}" ngDefaultControl> Active for Purchase
@@ -57,17 +57,29 @@
 		<button id = "btn-block" class="btn btn-lg btn-basic" name="Submit" value="Login" type="Submit"> Submit </button>
 	</div>
 </form>
-<button id = "check" class="btn-block" (click)="onChange()" >Checkout</button>
-<div *ngIf = "flag">
-	<div class="card card-inverse card-info mb-3 text-center" *ngFor = "let item of result">
-		<div class="card-block">
-			<blockquote class="card-blockquote">
-			<p>Item's Title: {{item.title}}</p>
-			<p>Quantity: {{item.quantity}}</p>
-			<p>Price: {{item.price}}</p>
-				<footer>isActivated: <cite title="Source Title">{{item.purchased}}</cite></footer>
-				<footer>isSaved: <cite title="Source Title">{{item.saved}}</cite></footer>
-			</blockquote>
-		</div>
-	</div>
+
+<div class="container" *ngIf = "flag">
+	<h2>My Items</h2>
+	<p>You can delete and edit your items here.</p>            
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Item Name</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Is-Active</th>
+				<th>Saved for later</th>
+			</tr>
+		</thead>
+		<tbody *ngFor = "let item of result; let i of index">
+			<tr>
+				<td>{{item.title}}</td>
+				<td>{{item.quantity}}</td>
+				<td>{{item.price}}</td>
+				<td>{{item.purchased}}</td>
+				<td>{{item.saved}}</td>
+				<td (click)="deleteItem(i)" class="delete-icon" style="color: red">delete[X]</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
