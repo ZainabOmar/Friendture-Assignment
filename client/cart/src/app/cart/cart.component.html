@@ -60,7 +60,7 @@
 
 <div class="container" *ngIf = "flag">
 	<h2>My Items</h2>
-	<p>You can delete and edit your items here.</p>            
+	<p>You can edit and delete your items here.</p>            
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -69,6 +69,8 @@
 				<th>Price</th>
 				<th>Is-Active</th>
 				<th>Saved for later</th>
+				<th>Delete</th>
+				<th>Edit</th>
 			</tr>
 		</thead>
 		<tbody *ngFor = "let item of result; let i of index">
@@ -78,7 +80,8 @@
 				<td>{{item.price}}</td>
 				<td>{{item.purchased}}</td>
 				<td>{{item.saved}}</td>
-				<td (click)="deleteItem(i)" class="delete-icon" style="color: red">delete[X]</td>
+				<td (click)="deleteItem(i)" class="delete-icon" style="color: red">delete <span class="glyphicon glyphicon-trash"></span></td>
+				<td (click) = "editItem(i)" class = "edit-icon" style="color: purple">Edit <span class="glyphicon glyphicon-edit"></span></td>
 			</tr>
 		</tbody>
 	</table>
