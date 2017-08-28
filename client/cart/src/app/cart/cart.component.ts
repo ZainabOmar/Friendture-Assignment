@@ -51,9 +51,15 @@ export class CartComponent implements OnInit {
 			console.log(err)
 		})
 	}
-	deleteItem (item) {
+	deleteItem(item) {
 		var id = item.id;
 		this.cartService.delItem(id).subscribe(data => {
+			console.log(data)
+		})
+	}
+	editItem(item) {
+		var id = item.id;
+		this.cartService.edit(id).subscribe(data => {
 			console.log(data)
 		})
 	}

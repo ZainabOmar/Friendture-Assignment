@@ -43,7 +43,18 @@ export class CartService {
 	}
 	delItem (id) {
 		let url = 'http://localhost:3000/api/items/'+id;
-		return this.http.get(url, {headers: this.headers})
+		return this.http.delete(url, {headers: this.headers})
+		.map(res => {
+			console.log(res)
+			res.json()
+		})
+		.catch(err=> {
+			return Observable.throw(err);
+		})
+	}
+	edit(id) {
+		let url = 'http://localhost:3000/api/items/'+id;
+		return this.http.put(url, {headers: this.headers})
 		.map(res => {
 			console.log(res)
 			res.json()
